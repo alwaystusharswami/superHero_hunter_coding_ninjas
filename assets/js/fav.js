@@ -12,17 +12,20 @@ let hash = CryptoJS.MD5(st).toString();
 const favHero = document.querySelector("#favHero");
 
 // function or events
-
 // !fetch function
-function apiCall() {
+async function apiCall(URL) {
+  const response = await fetch(URL);
+  const data = await response.json();
+  return data.data.results;
+}
+// ! function
+function LoadCall() {
   // console.log(favList);
   favHero.innerHTML='';
   favList.forEach(async (favId) => {
     const URL = `https://gateway.marvel.com/v1/public/characters/${favId}?ts=${ts}&apikey=${public_key}&hash=${hash}`;
-
-    const response = await fetch(URL);
-    const data = await response.json();
-    data.data.results.forEach((d) => {
+    const data= await apiCall(URL);
+    data.forEach((d) => {
       // console.log(d);
       const path = d.thumbnail.path + "." + d.thumbnail.extension;
       let icon = document.createElement("icon");
@@ -98,8 +101,8 @@ function apiCall() {
     });
   });
 }
-apiCall();
+LoadCall();
 function clickcall() {
   // console.log(`click call`);
-  apiCall();
+  LoadCall();
 }
