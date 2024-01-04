@@ -4,8 +4,8 @@
 }
 body{
     background-image: url('../images/image1.jpg');
-    background-size: cover;
-    background-attachment: scroll;
+    background-size: contain;
+    background-attachment: fixed;
 }
 
 nav{

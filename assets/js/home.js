@@ -1,3 +1,4 @@
+// localStorage.clear()
 if (localStorage.getItem("favorite") == null) {
   localStorage.setItem("favorite", JSON.stringify([]));
 }
@@ -35,6 +36,15 @@ input.addEventListener("keyup", async function () {
     displaySuggestions(data);
   }
 });
+// on load run 
+async function onLoad(){
+  if (input.value.length == 0) {
+    const URL = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
+  const data = await apiCall(URL);
+  heroDisplay(data);
+  }
+}
+onLoad();
 
 // ! suggestion box function
 function displaySuggestions(dataes) {
@@ -62,12 +72,16 @@ submit.addEventListener("submit", async function (e) {
   heroSuggestion.innerHTML = "";
 
   if (value.length == 0) {
-    return;
-  }
-
-  const URL = `http://gateway.marvel.com/v1/public/characters?name=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
+    const URL = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
   const data = await apiCall(URL);
   heroDisplay(data);
+  }else{
+    const URL = `http://gateway.marvel.com/v1/public/characters?name=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
+  const data = await apiCall(URL);
+  heroDisplay(data);
+  }
+
+  
 });
 function heroDisplay(dataes) {
   let fav = JSON.parse(localStorage.getItem("favorite"));
@@ -91,15 +105,12 @@ function heroDisplay(dataes) {
         fav = fav.filter((f) => f != data.id);
         icon.className = "heart";
         icon.textContent = "fav";
-        console.log(icon)
-
+        console.log(icon);
       } else {
         icon.className = "heart love";
         icon.textContent = "un-fav";
-
         fav.push(data.id);
-        console.log(icon)
-
+        console.log(icon);
       }
       localStorage.setItem("favorite", JSON.stringify(fav));
       console.log(fav);
