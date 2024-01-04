@@ -1,3 +1,7 @@
+localStorage.clear();
+if (localStorage.getItem("favorite") == null) {
+  localStorage.setItem("favorite", JSON.stringify([]));
+}
 // api public key
 let public_key = "0ca107dcc83d2d017103b0096ad6d269";
 let private_key = "7a0dbc0d88f93bc7cfd7cd650567f84e84dad871";
@@ -23,13 +27,10 @@ async function apiCall(URL) {
 // ! event on input tag
 input.addEventListener("input", async function () {
   let value = input.value.trim();
-  console.log(value);
   if (value == " " || value.length == 0) {
     console.log(`empty`);
     suggestion.innerHTML = " ";
   } else if (value.length > 0) {
-    console.log(`empty 2`);
-
     const URL = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
     let data = await apiCall(URL);
     displaySuggestions(data);
@@ -68,39 +69,52 @@ submit.addEventListener("submit", async function (e) {
   heroDisplay(data);
 });
 function heroDisplay(dataes) {
-    dataes.forEach(data => {
-        console.log(data)
-        const heroContainer = document.createElement("div");
+  let fav = JSON.parse(localStorage.getItem("favorite"));
+  dataes.forEach((data) => {
+    // console.log(data);
+    const heroContainer = document.createElement("div");
     // heroElement.className = 'suggestion';
-    // basic details 
-    const heroName=document.createElement('h3');
-    heroName.textContent=data.name;
-    const heroImage=document.createElement('img');
-    const path=data.thumbnail.path+'.'+data.thumbnail.extension;
+    // basic details
+    // * hero name
+    const heroName = document.createElement("h3");
+    heroName.textContent = data.name;
+    // * hero fav button
+    const i = document.createElement("i");
+    i.className = "fa-solid fa-heart";
+    i.addEventListener("click", function () {
+      console.log(`click`);
+      if (i.className.includes("love")) {
+        console.log(`love`);
+        fav = fav.filter((f) => f != data.id);
+        i.className = "fa-solid fa-heart";
+
+      } else {
+        i.className = "fa-solid fa-heart love";
+        fav.push(data.id);
+      }
+      localStorage.setItem("favorite", JSON.stringify(fav));
+      console.log(fav)
+    });
+
+    // * hero imgae
+
+    const heroImage = document.createElement("img");
+    const path = data.thumbnail.path + "." + data.thumbnail.extension;
     // console.log(path)
-    heroImage.src=path;
-    
+    heroImage.src = path;
 
-    const heroDetails=document.createElement('a');
-    heroDetails.href=`superHero.html?id=${data.id}`
-    heroDetails.textContent="More Details";
-    heroDetails.addEventListener('click',function(){
-        document.id=data.id;
-        
-    })
+    // * more detail on hero
 
+    const heroDetails = document.createElement("a");
+    heroDetails.href = `superHero.html?id=${data.id}`;
+    heroDetails.textContent = "More Details";
 
     heroContainer.appendChild(heroName);
+    heroContainer.appendChild(i);
     heroContainer.appendChild(heroImage);
     heroContainer.appendChild(heroDetails);
 
-    // heroContainer.textContent = data.name;
-
-    heroContainer.addEventListener("click", function () {
-        
-    //   input.value = data.name;
-    //   suggestion.style.display = "none";
-    });
     heroSuggestion.appendChild(heroContainer);
-    });
+    console.log(fav);
+  });
 }
