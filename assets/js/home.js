@@ -25,15 +25,19 @@ async function apiCall(URL) {
 }
 
 // ! event on input tag
-input.addEventListener("keyup", async function () {
-  let value = input.value.trim();
+input.addEventListener("keyup", async function (e) {
+
+  let value = e.target.value;
   if (value == " " || value.length == 0) {
     console.log(`empty`);
-    suggestion.innerHTML = " ";
+    
   } else if (value.length > 0) {
     const URL = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
     let data = await apiCall(URL);
+    suggestion.style.display = "block";
+
     displaySuggestions(data);
+
   }
 });
 // on load run
@@ -68,7 +72,9 @@ function displaySuggestions(dataes) {
 submit.addEventListener("submit", async function (e) {
   e.preventDefault();
   let value = input.value.trim();
-  suggestion.innerHTML = "";
+  suggestion.style.display = "none";
+  
+  input.value='';
   heroSuggestion.innerHTML = "";
 
   if (value.length == 0) {
@@ -108,23 +114,23 @@ function heroDisplay(dataes) {
       });
     }
     icon.addEventListener("click", function () {
-      console.log(`click`);
+      // console.log(`click`);
       if (icon.className.includes("love")) {
-        console.log(`love`);
+        // console.log(`love`);
         fav = fav.filter((f) => f != data.id);
         icon.className = "heart";
         icon.textContent = "fav";
-        console.log(icon);
-        console.log(fav);
+        // console.log(icon);
+        // console.log(fav);
       } else {
         icon.className = "heart love";
         icon.textContent = "un-fav";
         fav.push(data.id);
-        console.log(icon);
-        console.log(fav);
+        // console.log(icon);
+        // console.log(fav);
       }
       localStorage.setItem("favorite", JSON.stringify(fav));
-      console.log(fav);
+      // console.log(fav);
     });
 
     // * hero imgae
