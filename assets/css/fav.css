@@ -1,0 +1,87 @@
+#favHero {
+  background: #202020;
+  color: #fff;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  box-shadow: 1px 1px 20px #ec1d24;
+  margin: 50px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+#favHero .fav-div {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 70px;
+  -webkit-border-radius: 70px;
+  -moz-border-radius: 70px;
+  -ms-border-radius: 70px;
+  -o-border-radius: 70px;
+  margin-top: 50px;
+}
+#favHero img {
+  width: 700px;
+  margin-right: 50px;
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+}
+#favHero .flexFav{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  border-bottom: 5px solid #ec1d24;
+  align-items: center;
+
+}
+
+#favHero h1 {
+  font-size: 5rem;
+  font-style: italic;
+}
+#favHero p {
+  margin: 20px 10px;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+#favHero h3 {
+  margin: 20px 10px;
+  font-style: italic;
+  font-size: 2rem;
+}
+#favHero .heart {
+  width: 50px;
+  height: 20px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  color: #ec1d24;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  text-align: center;
+}
+#favHero .love {
+  color: #fff !important;
+  background-color: #ec1d24 !important;
+}
+#favHero h2 {
+  font-size: 3rem;
+  padding: 10px 0px;
+  margin: 20px 0;
+  border-bottom: 5px solid #ec1d24;
+}
+#favHero a {
+  text-decoration: none;
+  margin: 10px;
+  font-size: 2rem;
+  color: blue;
+}
+

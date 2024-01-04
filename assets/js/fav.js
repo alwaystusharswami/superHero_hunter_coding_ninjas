@@ -21,26 +21,32 @@ function apiCall() {
     const data = await response.json();
     data.data.results.forEach((d) => {
       const path = d.thumbnail.path + "." + d.thumbnail.extension;
-      const i = document.createElement("i");
-      i.className = "fa-solid fa-heart";
-      i.addEventListener("click", function () {
+      const icon = document.createElement("icon");
+      icon.className = "heart";
+      icon.textContent = "fav";
+      icon.addEventListener("click", function () {
         console.log(`click`);
-        if (i.className.includes("love")) {
+        if (icon.className.includes("love")) {
           console.log(`love`);
           fav = fav.filter((f) => f != data.id);
-          i.className = "fa-solid fa-heart";
+          icon.className = "heart";
+          icon.textContent = "fav";
         } else {
-          i.className = "fa-solid fa-heart love";
+          icon.className = "heart love";
           fav.push(data.id);
+          icon.textContent = "fav";
         }
         localStorage.setItem("favorite", JSON.stringify(fav));
         console.log(fav);
       });
       const div1 = document.createElement("div");
+
       const img = document.createElement("img");
       img.src = path;
       div1.appendChild(img);
       const div2 = document.createElement("div");
+      const favDivHeading=document.createElement('div');
+      favDivHeading.className='flexFav';
       const name = document.createElement("h1");
       const desc = document.createElement("p");
       name.textContent = d.name;
@@ -55,13 +61,18 @@ function apiCall() {
       const stories = document.createElement("h3");
       stories.textContent = "Total Stories :" + d.stories.available;
 
-      div2.appendChild(name);
+      favDivHeading.appendChild(name);
+      favDivHeading.appendChild(icon);
+      
+      div2.appendChild(favDivHeading);
       div2.appendChild(desc);
       div2.appendChild(comic);
       div2.appendChild(series);
       div2.appendChild(stories);
 
       const div3 = document.createElement("div");
+      const h2=document.createElement('h2');
+      h2.textContent=`Read More About ${d.name}`;
       const link1 = document.createElement("a");
       link1.href = d.urls[0].url;
       link1.textContent = "Marvel";
@@ -72,13 +83,17 @@ function apiCall() {
       link3.href = d.urls[2].url;
       link3.textContent = "Comic Link";
 
+      div3.appendChild(h2);
       div3.appendChild(link1);
       div3.appendChild(link2);
       div3.appendChild(link3);
+      div2.appendChild(div3);
+      const favdiv = document.createElement("div");
+      favdiv.className = "fav-div";
 
-      favHero.appendChild(div1);
-      favHero.appendChild(div2);
-      favHero.appendChild(div3);
+      favdiv.appendChild(div1);
+      favdiv.appendChild(div2);
+      favHero.appendChild(favdiv);
     });
   });
 }
