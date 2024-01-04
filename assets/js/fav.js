@@ -18,7 +18,7 @@ function apiCall() {
   // console.log(favList);
   favHero.innerHTML='';
   favList.forEach(async (favId) => {
-    const URL = `http://gateway.marvel.com/v1/public/characters/${favId}?ts=${ts}&apikey=${public_key}&hash=${hash}`;
+    const URL = `https://gateway.marvel.com/v1/public/characters/${favId}?ts=${ts}&apikey=${public_key}&hash=${hash}`;
 
     const response = await fetch(URL);
     const data = await response.json();

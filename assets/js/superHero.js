@@ -17,7 +17,7 @@ const profile = document.querySelector("#heroProfile");
 
 // !fetch function
 async function apiCall() {
-  const URL = `http://gateway.marvel.com/v1/public/characters/${id}?ts=${ts}&apikey=${public_key}&hash=${hash}`;
+  const URL = `https://gateway.marvel.com/v1/public/characters/${id}?ts=${ts}&apikey=${public_key}&hash=${hash}`;
 
   const response = await fetch(URL);
   const data = await response.json();

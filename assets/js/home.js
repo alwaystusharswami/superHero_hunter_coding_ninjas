@@ -32,7 +32,7 @@ input.addEventListener("keyup", async function (e) {
     console.log(`empty`);
     
   } else if (value.length > 0) {
-    const URL = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
+    const URL = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
     let data = await apiCall(URL);
     suggestion.style.display = "block";
 
@@ -43,7 +43,7 @@ input.addEventListener("keyup", async function (e) {
 // on load run
 async function onLoad() {
   if (input.value.length == 0) {
-    const URL = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
+    const URL = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
     const data = await apiCall(URL);
     heroDisplay(data);
   }
@@ -78,11 +78,11 @@ submit.addEventListener("submit", async function (e) {
   heroSuggestion.innerHTML = "";
 
   if (value.length == 0) {
-    const URL = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
+    const URL = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
     const data = await apiCall(URL);
     heroDisplay(data);
   } else {
-    const URL = `http://gateway.marvel.com/v1/public/characters?name=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
+    const URL = `https://gateway.marvel.com/v1/public/characters?name=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
     const data = await apiCall(URL);
     heroDisplay(data);
   }
