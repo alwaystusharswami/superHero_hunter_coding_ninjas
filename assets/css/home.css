@@ -1,0 +1,116 @@
+
+#searchContainer{
+    margin: 20px;
+}
+#form-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+
+
+}
+#form{
+    width: 50%;
+    display: flex;
+    /* justify-content: center; */
+
+}
+#form input{
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+#form button{
+    width: auto;
+    padding: 10px 20px;
+    font-size: 2rem;
+    color:#EC1D24;
+}
+#displaySuggestion{
+    width: 50%;
+    max-height: 420px;
+    overflow-y: hidden;
+    list-style-type: none;
+    font-size: 1.5rem;
+}
+#displaySuggestion li{
+    border-bottom: 1px solid;
+    margin: 10px 20px;
+    padding: 10px 0;
+}
+
+/* hero container  */
+#heroContainer{
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    
+}
+#heroContainer .box{
+    border: 1px solid black;
+    padding: 20px;
+    width: 400px;
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border: 1px solid #EC1D24;
+    box-shadow: 2px 2px 20px #EC1D24;
+
+}
+#heroContainer .hero-image{
+    width: 100%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    margin-bottom: 20px;
+}
+#heroContainer .inner-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+#heroContainer .hero-title{
+    font-size: 2rem;
+    font-style: italic;
+    width: 300px;
+    word-break: break-all;
+    
+}
+#heroContainer .heart{
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #EC1D24;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+#heroContainer .love{
+    color: #fff !important;
+    background-color: #EC1D24 !important;
+}
+#heroContainer .link{
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #EC1D24;
+    color: #fff;
+    border-top-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    font-weight: 800;
+    margin-top: 20px;
+
+
+}

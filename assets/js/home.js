@@ -74,23 +74,32 @@ function heroDisplay(dataes) {
   dataes.forEach((data) => {
     // console.log(data);
     const heroContainer = document.createElement("div");
-    // heroElement.className = 'suggestion';
+    heroContainer.className = "box";
     // basic details
     // * hero name
     const heroName = document.createElement("h3");
+    heroName.className = "hero-title";
     heroName.textContent = data.name;
     // * hero fav button
-    const i = document.createElement("i");
-    i.className = "fa-solid fa-heart";
-    i.addEventListener("click", function () {
+    const icon = document.createElement("p");
+    icon.className = "heart";
+    icon.textContent = "fav";
+    icon.addEventListener("click", function () {
       console.log(`click`);
-      if (i.className.includes("love")) {
+      if (icon.className.includes("love")) {
         console.log(`love`);
         fav = fav.filter((f) => f != data.id);
-        i.className = "fa-solid fa-heart";
+        icon.className = "heart";
+        icon.textContent = "fav";
+        console.log(icon)
+
       } else {
-        i.className = "fa-solid fa-heart love";
+        icon.className = "heart love";
+        icon.textContent = "un-fav";
+
         fav.push(data.id);
+        console.log(icon)
+
       }
       localStorage.setItem("favorite", JSON.stringify(fav));
       console.log(fav);
@@ -99,6 +108,7 @@ function heroDisplay(dataes) {
     // * hero imgae
 
     const heroImage = document.createElement("img");
+    heroImage.className = "hero-image";
     const path = data.thumbnail.path + "." + data.thumbnail.extension;
     // console.log(path)
     heroImage.src = path;
@@ -107,11 +117,15 @@ function heroDisplay(dataes) {
 
     const heroDetails = document.createElement("a");
     heroDetails.href = `superHero.html?id=${data.id}`;
-    heroDetails.textContent = "More Details";
-
-    heroContainer.appendChild(heroName);
-    heroContainer.appendChild(i);
+    heroDetails.className = "link";
+    heroDetails.textContent = "READ MORE";
+    const innerbox = document.createElement("div");
+    innerbox.className = "inner-box";
+    innerbox.append(heroName);
+    innerbox.append(icon);
+    // append all element
     heroContainer.appendChild(heroImage);
+    heroContainer.appendChild(innerbox);
     heroContainer.appendChild(heroDetails);
 
     heroSuggestion.appendChild(heroContainer);
