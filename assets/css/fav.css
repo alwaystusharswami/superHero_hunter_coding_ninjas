@@ -1,5 +1,5 @@
 #favHero {
-  background: #202020;
+  background: transparent;
   color: #fff;
   width: 90%;
   display: flex;
@@ -16,29 +16,36 @@
   -o-border-radius: 50px;
 }
 #favHero .fav-div {
+  width: 80%;
+  height: 700px;
   display: flex;
   justify-content: space-around;
-  border: 1px solid black;
+  border: 1px solid transparent;
   border-radius: 70px;
   -webkit-border-radius: 70px;
   -moz-border-radius: 70px;
   -ms-border-radius: 70px;
   -o-border-radius: 70px;
   margin-top: 50px;
+  background-color: #000;
 }
 #favHero img {
-  width: 700px;
-  margin-right: 50px;
+  width: 100%;
+  height: 100%;
+  margin-right: 100px;
   border-top-left-radius: 10%;
   border-bottom-left-radius: 10%;
 }
-#favHero .flexFav{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+#favHero .flexHelp {
+  width: 1000px;
+  margin-left: 30px;
+}
+#favHero .flexFav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
   border-bottom: 5px solid #ec1d24;
   align-items: center;
-
 }
 
 #favHero h1 {
@@ -84,4 +91,3 @@
   font-size: 2rem;
   color: blue;
 }
-

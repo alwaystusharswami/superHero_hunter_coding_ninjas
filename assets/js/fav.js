@@ -21,6 +21,7 @@ function apiCall() {
     const response = await fetch(URL);
     const data = await response.json();
     data.data.results.forEach((d) => {
+      console.log(d)
       const path = d.thumbnail.path + "." + d.thumbnail.extension;
       const icon = document.createElement("icon");
       icon.className = "heart";
@@ -46,6 +47,7 @@ function apiCall() {
       img.src = path;
       div1.appendChild(img);
       const div2 = document.createElement("div");
+      div2.className='flexHelp';
       const favDivHeading=document.createElement('div');
       favDivHeading.className='flexFav';
       const name = document.createElement("h1");
@@ -76,8 +78,8 @@ function apiCall() {
       const link=document.createElement('p');
       h2.textContent=`Read More About ${d.name}`;
       let html=``;
-      d.urls.forEach(url => {
-        html+=`<a href=${url} target="_blank" rel="noopener noreferrer"></a>`
+      d.urls.forEach(u => {
+        html+=`<a href=${u.url} target="_blank" rel="noopener noreferrer">${u.type} </a>`
         
       });
       link.innerHTML=html;
