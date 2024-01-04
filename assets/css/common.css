@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    padding: 20px;
+    background-color: #202020;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+nav li{
+    background-color: #EC1D24;
+    padding: 10px 20px;
+}
+nav a{
+    font-size: 1.5rem;
+    color:#FEFEFE;
+    text-decoration: none;
+    font-weight: 700;
+    
+}
