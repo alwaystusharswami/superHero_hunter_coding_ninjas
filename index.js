@@ -82,9 +82,12 @@ function heroDisplay(dataes) {
     
 
     const heroDetails=document.createElement('a');
+    heroDetails.href=`superHero.html?id=${data.id}`
     heroDetails.textContent="More Details";
-
-
+    heroDetails.addEventListener('click',function(){
+        document.id=data.id;
+        
+    })
 
 
     heroContainer.appendChild(heroName);
