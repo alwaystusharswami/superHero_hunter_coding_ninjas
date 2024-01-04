@@ -51,15 +51,12 @@ padding: 10px 0px;
 margin: 20px 0;
 border-bottom: 5px solid #EC1D24;
 }
-#heroProfile .link h3{
-font-size: 2rem;
-margin: 10px;
 
-
-}
-#heroProfile .link a{
+#heroProfile a{
 text-decoration: none;
 color: blue;
-
+font-size: 2rem;
+margin: 10px;
+text-transform: capitalize;
 }
 

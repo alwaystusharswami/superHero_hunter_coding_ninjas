@@ -27,7 +27,10 @@ async function apiCall() {
     // console.log(d);
     const path = d.thumbnail.path + "." + d.thumbnail.extension;
     // console.log(path);
-
+    let link='';
+    d.urls.forEach((u) => {
+      link += `<a href=${u.url} target="_blank" rel="noopener noreferrer">${u.type} </a>`;
+    });
     html = `
     <div class="profile-div">
     <div>
@@ -40,10 +43,8 @@ async function apiCall() {
     <h3>Total Stories : ${d.stories.available} </h3>
     <div class="link" >
     <h1>Read More About ${d.name} </h1>
-        <h3><a href=${d.urls[0].url} target="_blank">Marval </a></h3>
-        
-        <h3><a href=${d.urls[1].url} target="_blank">Wiki</a></h3>
-        <h3><a href=${d.urls[2].url} target="_blank"> Comic Link </a></h3></div>
+
+        ${link}
     </div>
     
     </div>
