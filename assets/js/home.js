@@ -36,12 +36,12 @@ input.addEventListener("keyup", async function () {
     displaySuggestions(data);
   }
 });
-// on load run 
-async function onLoad(){
+// on load run
+async function onLoad() {
   if (input.value.length == 0) {
     const URL = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
-  const data = await apiCall(URL);
-  heroDisplay(data);
+    const data = await apiCall(URL);
+    heroDisplay(data);
   }
 }
 onLoad();
@@ -73,15 +73,13 @@ submit.addEventListener("submit", async function (e) {
 
   if (value.length == 0) {
     const URL = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
-  const data = await apiCall(URL);
-  heroDisplay(data);
-  }else{
+    const data = await apiCall(URL);
+    heroDisplay(data);
+  } else {
     const URL = `http://gateway.marvel.com/v1/public/characters?name=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
-  const data = await apiCall(URL);
-  heroDisplay(data);
+    const data = await apiCall(URL);
+    heroDisplay(data);
   }
-
-  
 });
 function heroDisplay(dataes) {
   let fav = JSON.parse(localStorage.getItem("favorite"));
@@ -94,10 +92,21 @@ function heroDisplay(dataes) {
     const heroName = document.createElement("h3");
     heroName.className = "hero-title";
     heroName.textContent = data.name;
-    // * hero fav button
+    // * ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+    // hero fav button
     const icon = document.createElement("p");
     icon.className = "heart";
     icon.textContent = "fav";
+
+    if (fav.length) {
+      fav.forEach((f) => {
+        if (f == data.id) {
+          icon.className = "heart love";
+          icon.textContent = "un-fav";
+          return;
+        }
+      });
+    }
     icon.addEventListener("click", function () {
       console.log(`click`);
       if (icon.className.includes("love")) {
@@ -106,11 +115,13 @@ function heroDisplay(dataes) {
         icon.className = "heart";
         icon.textContent = "fav";
         console.log(icon);
+        console.log(fav);
       } else {
         icon.className = "heart love";
         icon.textContent = "un-fav";
         fav.push(data.id);
         console.log(icon);
+        console.log(fav);
       }
       localStorage.setItem("favorite", JSON.stringify(fav));
       console.log(fav);
@@ -140,6 +151,5 @@ function heroDisplay(dataes) {
     heroContainer.appendChild(heroDetails);
 
     heroSuggestion.appendChild(heroContainer);
-    console.log(fav);
   });
 }

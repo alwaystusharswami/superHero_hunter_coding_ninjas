@@ -73,21 +73,18 @@ function apiCall() {
 
       const div3 = document.createElement("div");
       const h2=document.createElement('h2');
+      const link=document.createElement('p');
       h2.textContent=`Read More About ${d.name}`;
-      const link1 = document.createElement("a");
-      link1.href = d.urls[0].url;
-      link1.textContent = "Marvel";
-      const link2 = document.createElement("a");
-      link2.href = d.urls[1].url;
-      link2.textContent = "Wiki";
-      const link3 = document.createElement("a");
-      link3.href = d.urls[2].url;
-      link3.textContent = "Comic Link";
+      let html=``;
+      d.urls.forEach(url => {
+        html+=`<a href=${url} target="_blank" rel="noopener noreferrer"></a>`
+        
+      });
+      link.innerHTML=html;
+      
 
       div3.appendChild(h2);
-      div3.appendChild(link1);
-      div3.appendChild(link2);
-      div3.appendChild(link3);
+      div3.appendChild(link);
       div2.appendChild(div3);
       const favdiv = document.createElement("div");
       favdiv.className = "fav-div";
