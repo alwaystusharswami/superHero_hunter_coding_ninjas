@@ -1,4 +1,3 @@
-localStorage.clear();
 if (localStorage.getItem("favorite") == null) {
   localStorage.setItem("favorite", JSON.stringify([]));
 }
@@ -25,7 +24,7 @@ async function apiCall(URL) {
 }
 
 // ! event on input tag
-input.addEventListener("input", async function () {
+input.addEventListener("keyup", async function () {
   let value = input.value.trim();
   if (value == " " || value.length == 0) {
     console.log(`empty`);
@@ -60,6 +59,8 @@ submit.addEventListener("submit", async function (e) {
   e.preventDefault();
   let value = input.value.trim();
   suggestion.innerHTML = "";
+  heroSuggestion.innerHTML = "";
+
   if (value.length == 0) {
     return;
   }
@@ -87,13 +88,12 @@ function heroDisplay(dataes) {
         console.log(`love`);
         fav = fav.filter((f) => f != data.id);
         i.className = "fa-solid fa-heart";
-
       } else {
         i.className = "fa-solid fa-heart love";
         fav.push(data.id);
       }
       localStorage.setItem("favorite", JSON.stringify(fav));
-      console.log(fav)
+      console.log(fav);
     });
 
     // * hero imgae
