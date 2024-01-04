@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-image: url('../images/image1.jpg');
+    background-size: cover;
+    background-attachment: scroll;
+}
 
 nav{
     padding: 20px;

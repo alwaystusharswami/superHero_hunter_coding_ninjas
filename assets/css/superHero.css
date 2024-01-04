@@ -1,0 +1,65 @@
+#heroProfile {
+    background: #fff;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 1px 1px 20px #EC1D24;
+  margin: 50px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+#heroProfile .profile-div {
+  display: flex;
+  justify-content: space-around;
+}
+#heroProfile img {
+  width: 700px;
+  border-radius: 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+}
+#heroProfile .profile-details{
+    width: 50%;
+}
+#heroProfile .profile-details h1 {
+border-bottom: 5px solid #EC1D24;
+font-size: 5rem;
+  font-style: italic;
+  margin: 20px 10px;
+}
+#heroProfile .profile-details p {
+  margin: 20px 10px;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+#heroProfile .profile-details h3 {
+  margin: 20px 10px;
+  font-style: italic;
+  font-size: 2rem;
+}
+#heroProfile .link h1{
+font-size: 3rem;
+padding: 10px 0px;
+margin: 20px 0;
+border-bottom: 5px solid #EC1D24;
+}
+#heroProfile .link h3{
+font-size: 2rem;
+margin: 10px;
+
+
+}
+#heroProfile .link a{
+text-decoration: none;
+color: blue;
+
+}
+
