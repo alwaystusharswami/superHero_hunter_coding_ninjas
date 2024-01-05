@@ -16,7 +16,7 @@ const favHero = document.querySelector("#favHero");
 async function apiCall(URL) {
   const response = await fetch(URL);
   const data = await response.json();
-  return data.data;
+  return data.data.results[0];
 }
 // ! function
 function LoadCall() {
@@ -27,9 +27,7 @@ function LoadCall() {
     const data= await apiCall(URL);
   console.log(data)
 
-    data.results.forEach((d) => {
-      // console.log(d);
-      const path = d.thumbnail.path + "." + d.thumbnail.extension;
+      const path = data.thumbnail.path + "." + data.thumbnail.extension;
       let icon = document.createElement("icon");
       icon.className = "heart love";
       icon.textContent = "un-fav";
@@ -40,7 +38,7 @@ function LoadCall() {
           icon.className = "heart";
           icon.textContent = "fav";
 
-          favList = favList.filter((f) => f != d.id);
+          favList = favList.filter((f) => f != data.id);
           localStorage.setItem("favorite", JSON.stringify(favList));
           // console.log(favList);
 
@@ -60,17 +58,17 @@ function LoadCall() {
       favDivHeading.className = "flexFav";
       const name = document.createElement("h1");
       const desc = document.createElement("p");
-      name.textContent = d.name;
-      desc.textContent = d.description;
+      name.textContent = data.name;
+      desc.textContent = data.description;
 
       const comic = document.createElement("h3");
-      comic.textContent = "Available Comics :" + d.comics.available;
+      comic.textContent = "Available Comics :" + data.comics.available;
 
       const series = document.createElement("h3");
-      series.textContent = "Total Series :" + d.series.available;
+      series.textContent = "Total Series :" + data.series.available;
 
       const stories = document.createElement("h3");
-      stories.textContent = "Total Stories :" + d.stories.available;
+      stories.textContent = "Total Stories :" + data.stories.available;
 
       favDivHeading.appendChild(name);
       favDivHeading.appendChild(icon);
@@ -84,9 +82,9 @@ function LoadCall() {
       const div3 = document.createElement("div");
       const h2 = document.createElement("h2");
       const link = document.createElement("p");
-      h2.textContent = `Read More About ${d.name}`;
+      h2.textContent = `Read More About ${data.name}`;
       let html = ``;
-      d.urls.forEach((u) => {
+      data.urls.forEach((u) => {
         html += `<a href=${u.url} target="_blank" rel="noopener noreferrer">${u.type} </a>`;
       });
       link.innerHTML = html;
@@ -100,7 +98,7 @@ function LoadCall() {
       favdiv.appendChild(div1);
       favdiv.appendChild(div2);
       favHero.appendChild(favdiv);
-    });
+  
   });
 }
 LoadCall();
