@@ -17,7 +17,7 @@
 }
 #favHero .fav-div {
   width: 80%;
-  height: 700px;
+  /* height: 700px; */
   display: flex;
   justify-content: space-around;
   border: 1px solid transparent;
