@@ -4,12 +4,25 @@ In this website you can find your super hero details of Marvels and some more fu
 
 # ScreenShot
 
-<img src='./assets//images/s1.png' style="width:350px"/>
-<img src='./assets//images/s2.png' style="width:350px"/>
-<img src='./assets//images/s3.png' style="width:350px"/>
-<img src='./assets//images/s4.png' style="width:350px"/>
-<img src='./assets//images/s5.png' style="width:350px"/>
+## Home page
 
+<img src='./assets/images/s1.png' style="width:350px"/>
+
+## input suggestion box
+
+<img src='./assets/images/s2.png' style="width:350px"/>
+
+## search by particular hero by name
+
+<img src='./assets/images/s3.png' style="width:350px"/>
+
+## More details of our hero
+
+<img src='./assets/images/s4.png' style="width:350px"/>
+
+## favorite page
+
+<img src='./assets/images/s5.png' style="width:350px"/>
 
 # Hosted Link
 
