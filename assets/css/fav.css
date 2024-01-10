@@ -49,7 +49,7 @@
 }
 
 #favHero h1 {
-  width:500px;
+  width: 500px;
   font-size: 4rem;
   font-style: italic;
 }
@@ -63,22 +63,14 @@
   font-style: italic;
   font-size: 2rem;
 }
-#favHero .heart {
-  width: 50px;
-  height: 20px;
-  background-color: #fff;
+#favHero .fa-heart {
   padding: 10px;
-  border-radius: 20px;
-  color: #ec1d24;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  color: #fff;
   text-align: center;
+  font-size: 2.5rem;
 }
 #favHero .love {
-  color: #fff !important;
-  background-color: #ec1d24 !important;
+  color: #ec1d24 !important;
 }
 #favHero h2 {
   font-size: 3rem;

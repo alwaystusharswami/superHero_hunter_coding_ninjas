@@ -21,84 +21,83 @@ async function apiCall(URL) {
 // ! function
 function LoadCall() {
   // console.log(favList);
-  favHero.innerHTML='';
+  favHero.innerHTML = "";
   favList.forEach(async (favId) => {
     const URL = `https://gateway.marvel.com/v1/public/characters/${favId}?ts=${ts}&apikey=${public_key}&hash=${hash}`;
-    const data= await apiCall(URL);
-  console.log(data)
+    const data = await apiCall(URL);
+    console.log(data);
 
-      const path = data.thumbnail.path + "." + data.thumbnail.extension;
-      let icon = document.createElement("icon");
-      icon.className = "heart love";
-      icon.textContent = "un-fav";
-      icon.addEventListener("click", function () {
+    const path = data.thumbnail.path + "." + data.thumbnail.extension;
+
+    // <i class="fa-solid fa-heart"></i>
+    // font icon
+    let icon = document.createElement("i");
+    icon.className = "fa-solid fa-heart love";
+    icon.addEventListener("click", function () {
+      // console.log(favList);
+
+      if (icon.className.includes("love")) {
+
+        favList = favList.filter((f) => f != data.id);
+        localStorage.setItem("favorite", JSON.stringify(favList));
         // console.log(favList);
 
-        if (icon.className.includes("love")) {
-          icon.className = "heart";
-          icon.textContent = "fav";
+        clickcall();
+        // console.log(favList);
+      }
+    });
+    // console.log(`success`);
+    const div1 = document.createElement("div");
 
-          favList = favList.filter((f) => f != data.id);
-          localStorage.setItem("favorite", JSON.stringify(favList));
-          // console.log(favList);
+    const img = document.createElement("img");
+    img.src = path;
+    div1.appendChild(img);
+    const div2 = document.createElement("div");
+    div2.className = "flexHelp";
+    const favDivHeading = document.createElement("div");
+    favDivHeading.className = "flexFav";
+    const name = document.createElement("h1");
+    const desc = document.createElement("p");
+    name.textContent = data.name;
+    desc.textContent = data.description;
 
-          clickcall();
-          // console.log(favList);
-        }
-      });
-      // console.log(`success`);
-      const div1 = document.createElement("div");
+    const comic = document.createElement("h3");
+    comic.textContent = "Available Comics :" + data.comics.available;
 
-      const img = document.createElement("img");
-      img.src = path;
-      div1.appendChild(img);
-      const div2 = document.createElement("div");
-      div2.className = "flexHelp";
-      const favDivHeading = document.createElement("div");
-      favDivHeading.className = "flexFav";
-      const name = document.createElement("h1");
-      const desc = document.createElement("p");
-      name.textContent = data.name;
-      desc.textContent = data.description;
+    const series = document.createElement("h3");
+    series.textContent = "Total Series :" + data.series.available;
 
-      const comic = document.createElement("h3");
-      comic.textContent = "Available Comics :" + data.comics.available;
+    const stories = document.createElement("h3");
+    stories.textContent = "Total Stories :" + data.stories.available;
 
-      const series = document.createElement("h3");
-      series.textContent = "Total Series :" + data.series.available;
+    favDivHeading.appendChild(name);
+    favDivHeading.appendChild(icon);
 
-      const stories = document.createElement("h3");
-      stories.textContent = "Total Stories :" + data.stories.available;
+    div2.appendChild(favDivHeading);
+    div2.appendChild(desc);
+    div2.appendChild(comic);
+    div2.appendChild(series);
+    div2.appendChild(stories);
 
-      favDivHeading.appendChild(name);
-      favDivHeading.appendChild(icon);
+    const div3 = document.createElement("div");
+    const h2 = document.createElement("h2");
+    const link = document.createElement("p");
+    h2.textContent = `Read More About ${data.name}`;
+    let html = ``;
+    data.urls.forEach((u) => {
+      html += `<a href=${u.url} target="_blank" rel="noopener noreferrer">${u.type} </a>`;
+    });
+    link.innerHTML = html;
 
-      div2.appendChild(favDivHeading);
-      div2.appendChild(desc);
-      div2.appendChild(comic);
-      div2.appendChild(series);
-      div2.appendChild(stories);
+    div3.appendChild(h2);
+    div3.appendChild(link);
+    div2.appendChild(div3);
+    const favdiv = document.createElement("div");
+    favdiv.className = "fav-div";
 
-      const div3 = document.createElement("div");
-      const h2 = document.createElement("h2");
-      const link = document.createElement("p");
-      h2.textContent = `Read More About ${data.name}`;
-      let html = ``;
-      data.urls.forEach((u) => {
-        html += `<a href=${u.url} target="_blank" rel="noopener noreferrer">${u.type} </a>`;
-      });
-      link.innerHTML = html;
-
-      div3.appendChild(h2);
-      div3.appendChild(link);
-      div2.appendChild(div3);
-      const favdiv = document.createElement("div");
-      favdiv.className = "fav-div";
-
-      favdiv.appendChild(div1);
-      favdiv.appendChild(div2);
-      favHero.appendChild(favdiv);
-  
+    favdiv.appendChild(div1);
+    favdiv.appendChild(div2);
+    favHero.appendChild(favdiv);
   });
 }
 LoadCall();

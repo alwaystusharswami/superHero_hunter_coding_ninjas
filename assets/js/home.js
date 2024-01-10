@@ -26,20 +26,16 @@ async function apiCall(URL) {
 
 // ! event on input tag
 input.addEventListener("keyup", async function (e) {
-
   let value = e.target.value;
   if (value == " " || value.length == 0) {
     // console.log(`empty`);
-  suggestion.innerHTML = "";
-
-    
+    suggestion.innerHTML = "";
   } else if (value.length > 0) {
     const URL = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
     let data = await apiCall(URL);
     suggestion.style.display = "block";
 
     displaySuggestions(data);
-
   }
 });
 // on load run
@@ -59,8 +55,8 @@ function displaySuggestions(dataes) {
   dataes.forEach((data) => {
     // console.log(data.name)
     const suggestionElement = document.createElement("li");
-      const heroDetails = document.createElement("a");
-      heroDetails.href = `superHero.html?id=${data.id}`;
+    const heroDetails = document.createElement("a");
+    heroDetails.href = `superHero.html?id=${data.id}`;
 
     // suggestionElement.className = 'suggestion';
     heroDetails.textContent = data.name;
@@ -69,7 +65,7 @@ function displaySuggestions(dataes) {
       input.value = data.name;
       suggestion.style.display = "none";
     });
-    suggestionElement.appendChild(heroDetails)
+    suggestionElement.appendChild(heroDetails);
     suggestion.appendChild(suggestionElement);
   });
 }
@@ -79,7 +75,7 @@ function displaySuggestions(dataes) {
 //   e.preventDefault();
 //   let value = input.value.trim();
 //   suggestion.style.display = "none";
-  
+
 //   input.value='';
 //   heroSuggestion.innerHTML = "";
 
@@ -106,15 +102,14 @@ function heroDisplay(dataes) {
     heroName.textContent = data.name;
     // * ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
     // hero fav button
-    const icon = document.createElement("p");
-    icon.className = "heart";
-    icon.textContent = "fav";
+    // <i class="fa-solid fa-heart"></i>
+    const icon = document.createElement("i");
+    icon.className = "fa-solid fa-heart";
 
     if (fav.length) {
       fav.forEach((f) => {
         if (f == data.id) {
-          icon.className = "heart love";
-          icon.textContent = "un-fav";
+          icon.className = "fa-solid fa-heart love";
           return;
         }
       });
@@ -124,13 +119,14 @@ function heroDisplay(dataes) {
       if (icon.className.includes("love")) {
         // console.log(`love`);
         fav = fav.filter((f) => f != data.id);
-        icon.className = "heart";
-        icon.textContent = "fav";
+        // icon.className = "heart";
         // console.log(icon);
         // console.log(fav);
+        icon.className = "fa-solid fa-heart";
       } else {
-        icon.className = "heart love";
-        icon.textContent = "un-fav";
+        // icon.className = "heart love";
+        icon.className = "fa-solid fa-heart love";
+
         fav.push(data.id);
         // console.log(icon);
         // console.log(fav);

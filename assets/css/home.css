@@ -1,129 +1,111 @@
-
-#searchContainer{
-    margin: 20px;
+#searchContainer {
+  margin: 20px;
 }
-#form-div{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    
-
-
+#form-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#form{
-    margin-top: 50px;
-    width: 50%;
-    display: flex;
+#form {
+  margin-top: 50px;
+  width: 50%;
+  display: flex;
 }
-#form input{
-    width: 100%;
-    padding: 10px 20px;
-    font-size: 2rem;
+#form input {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 2rem;
 }
-#form button{
-    width: auto;
-    padding: 10px 20px;
-    font-size: 2rem;
-    color:#EC1D24;
+#form button {
+  width: auto;
+  padding: 10px 20px;
+  font-size: 2rem;
+  color: #ec1d24;
 }
-#displaySuggestion{
-    width: 50%;
-    max-height: 420px;
-    overflow-y: hidden;
-    list-style-type: none;
-    font-size: 1.5rem;
-    background-color: #fff;
+#displaySuggestion {
+  width: 50%;
+  max-height: 420px;
+  overflow-y: hidden;
+  list-style-type: none;
+  font-size: 1.5rem;
+  background-color: #fff;
 }
-#displaySuggestion li{
-    border-bottom: 1px solid;
-    margin: 10px 20px;
-    padding: 10px 0;
+#displaySuggestion li {
+  border-bottom: 1px solid;
+  margin: 10px 20px;
+  padding: 10px 0;
 }
-#displaySuggestion li a{
-    text-decoration: none;
-    color: #202020;
+#displaySuggestion li a {
+  text-decoration: none;
+  color: #202020;
 }
 
 /* hero container  */
-#heroContainer{
-    color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    
+#heroContainer {
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-#heroContainer .box{
-    border: 1px solid black;
-    padding: 20px;
-    width: 500px;
-    max-height: 500px;
-    background-color: #202020;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    border: 1px solid #EC1D24;
-    box-shadow: 2px 2px 20px #EC1D24;
-    margin: 20px;
-
+#heroContainer .box {
+  border: 1px solid black;
+  padding: 20px;
+  width: 500px;
+  max-height: 500px;
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border: 1px solid #ec1d24;
+  box-shadow: 2px 2px 20px #ec1d24;
+  margin: 20px;
 }
-#heroContainer .hero-image{
-    object-fit: cover;
-    width: 100%;
-    max-height: 70%;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    margin-bottom: 20px;
+#heroContainer .hero-image {
+  object-fit: cover;
+  width: 100%;
+  max-height: 70%;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  margin-bottom: 20px;
 }
-#heroContainer .inner-box{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+#heroContainer .inner-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
-#heroContainer .hero-title{
-    font-size: 2rem;
-    font-style: italic;
-    width: 300px;
-    /* word-break: break-all; */
-    line-break: auto;
-    
+#heroContainer .hero-title {
+  font-size: 2rem;
+  font-style: italic;
+  width: 300px;
+  /* word-break: break-all; */
+  line-break: auto;
 }
-#heroContainer .heart{
-    width: 50px;
-    height: 20px;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 20px;
-    color: #EC1D24;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    text-align: center;
+#heroContainer .fa-heart {
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
 }
-#heroContainer .love{
-    color: #fff !important;
-    background-color: #EC1D24 !important;
+#heroContainer .love {
+  color: #ec1d24 !important;
 }
-#heroContainer .link{
-    text-decoration: none;
-    padding: 10px 20px;
-    background: #EC1D24;
-    color: #fff;
-    border-top-left-radius: 40%;
-    border-bottom-right-radius: 40%;
-    font-weight: 800;
-    margin-top: 20px;
-
-
+#heroContainer .link {
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #ec1d24;
+  color: #fff;
+  border-top-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  font-weight: 800;
+  margin-top: 20px;
 }
