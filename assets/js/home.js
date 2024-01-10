@@ -29,7 +29,9 @@ input.addEventListener("keyup", async function (e) {
 
   let value = e.target.value;
   if (value == " " || value.length == 0) {
-    console.log(`empty`);
+    // console.log(`empty`);
+  suggestion.innerHTML = "";
+
     
   } else if (value.length > 0) {
     const URL = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
