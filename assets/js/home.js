@@ -59,36 +59,40 @@ function displaySuggestions(dataes) {
   dataes.forEach((data) => {
     // console.log(data.name)
     const suggestionElement = document.createElement("li");
+      const heroDetails = document.createElement("a");
+      heroDetails.href = `superHero.html?id=${data.id}`;
+
     // suggestionElement.className = 'suggestion';
-    suggestionElement.textContent = data.name;
+    heroDetails.textContent = data.name;
 
     suggestionElement.addEventListener("click", function () {
       input.value = data.name;
       suggestion.style.display = "none";
     });
+    suggestionElement.appendChild(heroDetails)
     suggestion.appendChild(suggestionElement);
   });
 }
 
 // event on form tag
-submit.addEventListener("submit", async function (e) {
-  e.preventDefault();
-  let value = input.value.trim();
-  suggestion.style.display = "none";
+// submit.addEventListener("submit", async function (e) {
+//   e.preventDefault();
+//   let value = input.value.trim();
+//   suggestion.style.display = "none";
   
-  input.value='';
-  heroSuggestion.innerHTML = "";
+//   input.value='';
+//   heroSuggestion.innerHTML = "";
 
-  if (value.length == 0) {
-    const URL = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
-    const data = await apiCall(URL);
-    heroDisplay(data);
-  } else {
-    const URL = `https://gateway.marvel.com/v1/public/characters?name=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
-    const data = await apiCall(URL);
-    heroDisplay(data);
-  }
-});
+//   if (value.length == 0) {
+//     const URL = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${public_key}&hash=${hash}`;
+//     const data = await apiCall(URL);
+//     heroDisplay(data);
+//   } else {
+//     const URL = `https://gateway.marvel.com/v1/public/characters?name=${value}&ts=${ts}&apikey=${public_key}&hash=${hash}`;
+//     const data = await apiCall(URL);
+//     heroDisplay(data);
+//   }
+// });
 function heroDisplay(dataes) {
   let fav = JSON.parse(localStorage.getItem("favorite"));
   dataes.forEach((data) => {

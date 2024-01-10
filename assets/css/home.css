@@ -42,6 +42,10 @@
     margin: 10px 20px;
     padding: 10px 0;
 }
+#displaySuggestion li a{
+    text-decoration: none;
+    color: #202020;
+}
 
 /* hero container  */
 #heroContainer{
