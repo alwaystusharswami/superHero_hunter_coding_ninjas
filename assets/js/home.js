@@ -110,7 +110,7 @@ function heroDisplay(dataes) {
       fav.forEach((f) => {
         if (f == data.id) {
           icon.className = "fa-solid fa-heart love";
-          return;
+          // return;
         }
       });
     }

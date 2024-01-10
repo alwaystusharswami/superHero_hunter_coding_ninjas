@@ -1,12 +1,13 @@
 #heroProfile {
-    background: #fff;
+  background: transparent;
+  color: #fff;
   width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  box-shadow: 1px 1px 20px #EC1D24;
+  padding: 50px;
+  /* box-shadow: 1px 1px 20px #ec1d24; */
   margin: 50px;
   border-radius: 50px;
   -webkit-border-radius: 50px;
@@ -14,49 +15,72 @@
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
 }
-#heroProfile .profile-div {
+#heroProfile .fav-div {
+  width: 80%;
+  /* height: 700px; */
   display: flex;
   justify-content: space-around;
+  border: 1px solid transparent;
+  border-radius: 70px;
+  -webkit-border-radius: 70px;
+  -moz-border-radius: 70px;
+  -ms-border-radius: 70px;
+  -o-border-radius: 70px;
+  margin-top: 50px;
+  background-color: #000;
 }
 #heroProfile img {
-  width: 700px;
-  border-radius: 10%;
-  -webkit-border-radius: 10%;
-  -moz-border-radius: 10%;
-  -ms-border-radius: 10%;
-  -o-border-radius: 10%;
+  width: 100%;
+  height: 100%;
+  margin-right: 100px;
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
 }
-#heroProfile .profile-details{
-    width: 50%;
+#heroProfile .flexHelp {
+  width: 1000px;
+  margin-left: 30px;
 }
-#heroProfile .profile-details h1 {
-border-bottom: 5px solid #EC1D24;
-font-size: 5rem;
+#heroProfile .flexFav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 5px solid #ec1d24;
+  align-items: center;
+}
+
+#heroProfile h1 {
+  width: 500px;
+  font-size: 4rem;
   font-style: italic;
-  margin: 20px 10px;
 }
-#heroProfile .profile-details p {
+#heroProfile p {
   margin: 20px 10px;
   font-style: italic;
   font-size: 1.5rem;
 }
-#heroProfile .profile-details h3 {
+#heroProfile h3 {
   margin: 20px 10px;
   font-style: italic;
   font-size: 2rem;
 }
-#heroProfile .link h1{
-font-size: 3rem;
-padding: 10px 0px;
-margin: 20px 0;
-border-bottom: 5px solid #EC1D24;
+#heroProfile .fa-heart {
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
 }
-
-#heroProfile a{
-text-decoration: none;
-color: blue;
-font-size: 2rem;
-margin: 10px;
-text-transform: capitalize;
+#heroProfile .love {
+  color: #ec1d24 !important;
 }
-
+#heroProfile h2 {
+  font-size: 3rem;
+  padding: 10px 0px;
+  margin: 20px 0;
+  border-bottom: 5px solid #ec1d24;
+}
+#heroProfile a {
+  text-decoration: none;
+  margin: 10px;
+  font-size: 2rem;
+  color: blue;
+}
